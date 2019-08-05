@@ -13,11 +13,11 @@ app.get("/", (req, res) => res.send("Hello"));
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log("0Server runing on port ${port}"));
+app.listen(port, () => console.log(`Server runing on port ${port}`));
 
-// // Body parser middleware
-// app.use(bodyParser.urlencoded({ extended: false }));
-// app.use(bodyParser.json());
+// Body parser middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 
 // // DB Config
 const db = require("./config/keys").mongoURI;
@@ -34,10 +34,10 @@ mongoose
 // // Passport Config
 // require("./config/passport")(passport);
 
-// // Use Routes
-// app.use("/api/users", users);
-// app.use("/api/profile", profile);
-// app.use("/api/posts", posts);
+// Use Routes
+app.use("/api/users", users);
+app.use("/api/profile", profile);
+app.use("/api/posts", posts);
 
 // const port = process.env.PORT || 5000;
 
